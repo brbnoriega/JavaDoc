@@ -1,0 +1,45 @@
+Las colecciones simplifican el manejo de datos al ofrecer estructuras flexibles. Al igual que en Pokemon GO, donde organizas y manipulas a los pokemon capturados, las collections organizan y manejan datos.
+
+Usamos listpara mantener registros, como una lista de los pokemones capturados
+List<String> listaPokemon = new ArrayList<>();
+listaPokemon.add("Pikachu");
+listaPokemon.add("Charmander");
+listaPokemon.add("Squirtle");
+
+
+En este caso, listaPokemon tiene 3 elementos. Podemos acceder a estos usando su posición
+System.out.println("Pokemons de la lista!");
+System.out.println("1. " + listaPokemon.get(0)); 
+System.out.println("2. " + listaPokemon.get(1)); 
+System.out.println("3. " + listaPokemon.get(2));
+
+
+Los conjuntos, como un set eliminan duplicados:
+Set<String> setDePokemones = new HashSet<>();
+setDePokemones.add("Pikachu");
+setDePokemones.add("Charmander");
+setDePokemones.add("Squirtle");
+setDePokemones.add("Pikachu");  // Tenemos un Pikachu x2! 
+
+
+Para manejar el orden de captura, podemos usar las  queues
+Queue<String> colaPokemon = new LinkedList<>();
+colaPokemon.add("Pikachu");
+colaPokemon.add("Charmander");
+colaPokemon.add("Squirtle");
+System.out.println("Orden de captura!");
+for (String pokemon : colaPokemon) { 
+    System.out.println(pokemon); 
+}
+
+El resultado es el orden en que fueron agregados a la cola sera el mismo orden en que se imprimen debido a su caracteristica de FIFO (First-In-First-Out).
+Y similar a la pokedex tenemos el map con su estructura de clave-valor
+Map<Integer, String> pokedex = new HashMap<>();
+        pokedex.put(25, "Pikachu");
+        pokedex.put(4, "Charmander");
+        pokedex.put(7, "Squirtle");
+        System.out.println("Contenido del pokedex");
+        System.out.println(pokedex);
+    }
+
+{4=Charmander, 7=Squirtle, 25=Pikachu}
