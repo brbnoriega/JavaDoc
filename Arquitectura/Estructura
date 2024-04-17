@@ -1,0 +1,37 @@
+# Estructura carpetas de instalación de java
+
+proyecto/
+│
+├── src/                # Directorio fuente
+│   ├── main/           # Código fuente principal
+│   │   ├── java/       # Archivos fuente Java
+│   │   └── resources/  # Archivos de recursos (archivos de configuración, archivos de propiedades, etc.)
+│   │
+│   └── test/           # Código fuente de pruebas
+│       ├── java/       # Archivos fuente Java de pruebas
+│       └── resources/  # Archivos de recursos para pruebas
+│
+├── target/             # Directorio de salida (generado por Maven, por ejemplo)
+│
+├── lib/                # Bibliotecas externas (si no se utilizan sistemas de gestión de dependencias como Maven o Gradle)
+│
+├── bin/                # Archivos binarios (compilados)
+│
+└── docs/               # Documentación
+
+# Arquitectura proyecto
+
+config: Esta carpeta suele contener archivos relacionados con la configuración de la aplicación, como archivos de propiedades, XML de configuración, 
+archivos de inicialización, etc. Aquí puedes definir configuraciones que afecten el comportamiento de tu aplicación.
+
+controller: En esta carpeta se encuentran las clases controladoras o controladores de tu aplicación. Los controladores son responsables de manejar las 
+solicitudes del usuario, interactuar con el modelo y controlar la navegación entre las distintas vistas.
+
+domain: Esta carpeta puede contener las clases de dominio de tu aplicación, también conocidas como modelos. Estas clases representan los objetos de tu dominio de 
+negocio y suelen ser utilizadas para almacenar y manipular datos.
+
+service: Aquí es donde se suelen colocar las clases que implementan la lógica de negocio de tu aplicación. Estas clases contienen métodos que realizan operaciones 
+específicas relacionadas con el negocio y son utilizadas por los controladores para ejecutar ciertas acciones.
+
+util: Esta carpeta puede contener clases de utilidad, es decir, clases que proporcionan métodos genéricos o funciones auxiliares que son utilizadas en varias partes de la 
+aplicación.
