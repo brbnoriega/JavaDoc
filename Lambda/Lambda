@@ -1,0 +1,66 @@
+Buenas! investigando sobre las expresiones lambda descubrí que sirven para implementar de manera rápida y concisa interfaces funcionales. La sintaxis básica sería (parametro) -> {cuerpo}, donde la función anónima puede o no recibir parámetros. 
+
+👉 La expresión lambda debe estar asociada a una interfaz funcional que define el método que la expresión lambda va a implementar. Esto facilita la escritura de funciones de orden superior y el uso de programación funcional en general. Por ejemplo:
+
+//declaro la interface como metodo abstracto
+interface Aviso{
+    void saludar();
+};
+public class Lambda {
+    public static void main(String[] args) {
+        // expresión lambda para saludar
+        Aviso ganador= () -> System.out.println("Primero llego Yoshi!");
+        ganador.saludar();
+    }}
+
+👉 En este caso, no use ningún parámetro, pero ¿qué sucede si necesitamos uno o más? La sintaxis sería la siguiente: con un parámetro, (param) -> {cuerpo} y con múltiples parámetros (param1, param2) -> {cuerpo}. Por ejemplo:
+
+interface Puntaje {
+    void registrarPuntaje(String piloto, int puntaje);
+}
+public class Lambda {
+    public static void main(String[] args) {
+      
+        Puntaje registrarPuntaje = (piloto, puntaje) -> System.out.println(piloto + " ha obtenido un puntaje de " + puntaje + " puntos");
+
+        registrarPuntaje.registrarPuntaje("Mario", 25); 
+        registrarPuntaje.registrarPuntaje("Luigi", 18);     
+}}
+
+🎯 El uso de estas expresiones puede variar según la necesidad de uso ¿Vos las usaste? ¿Para qué?
+
+Y como se integra lambda con colecciones? Y  con streams?Tomemos como ejemplo una clase Pelicula con atributos de título, fecha y genero. 
+
+Luego creamos las pelis 🍿  (vos que peli agregarías?) :
+        
+List<Pelicula> peliculas = Arrays.asList(
+            new Pelicula("Gladiador", 2000, "Acción"),
+            new Pelicula("El Padrino", 1972, "Drama"),
+            new Pelicula("La Milla Verde", 1999, "Drama"),
+            new Pelicula("El Señor de los Anillos", 2001, "Fantasía")
+        );
+
+Y realizo las siguientes operaciones:
+// Filtrado por género
+        List<Pelicula> peliculasDramaticas = peliculas.stream() //elemento
+                .filter(pelicula -> pelicula.getGenero().equals("Drama"))
+                .collect(Collectors.toList()); // crea la lista
+        System.out.println("Películas de drama: " + peliculasDramaticas );
+
+
+// Mapeo de títulos
+        List<String> titulos = peliculas.stream() // convierte la lista a elemento
+                .map(Pelicula::getTitulo) //operador :: alude a método existente
+                .collect(Collectors.toList()); //recopila la lista
+        System.out.println("Títulos de las películas: " + titulos);
+
+
+// Búsqueda por fecha más antigua
+        int fechaMasAntigua = peliculas.stream()
+                .mapToInt(Pelicula::getFecha) //transforma cada objeto Pelicula en su año como un entero
+                .min() //método para encontrar el valor mínimo
+       .getAsInt(); // extrae y almacena el valor en fechaMasAntigua
+     
+        System.out.println("Fecha más antigua: " + fechaMasAntigua);
+
+La combinación de lambda con streams proporciona un enfoque funcional para interactuar con datos. En conjunto nos permiten definir funciones anónimas de forma concisa. 
