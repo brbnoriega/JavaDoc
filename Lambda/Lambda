@@ -29,7 +29,7 @@ public class Lambda {
 
 🎯 El uso de estas expresiones puede variar según la necesidad de uso
 
-<a href='https://postimg.cc/3yd2QxwK' target='_blank'><img src='https://i.postimg.cc/3yd2QxwK/image.png' border='0' alt='image'/></a>
+![Logo de GitHub](https://github.com/tu-usuario/tu-repositorio/nombre-de-la-imagen.jpg)
 
 Y como se integra lambda con colecciones? Y  con streams?Tomemos como ejemplo una clase Pelicula con atributos de título, fecha y genero. 
 
